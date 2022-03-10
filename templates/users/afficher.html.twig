@@ -1,0 +1,96 @@
+{% extends 'base-back.html.twig' %}
+
+{% block body %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<div class="row"><div class="col-sm-12"><table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
+            <thead>
+            <tr><th rowspan="1" colspan="1">id</th>
+                <th rowspan="1" colspan="1">name</th>
+                <th rowspan="1" colspan="1">firstname</th>
+                <th rowspan="1" colspan="1">email</th>
+                <th rowspan="1" colspan="1">Supprimer</th>
+            </tr>            </thead>
+            <tfoot>
+
+            </tfoot>
+            <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr class="odd" {% for u in user %}>
+                <td class="sorting_1">u.id</td>
+                <td>{{ u.name }}</td>
+                <td>{{ u.firstname }}</td>
+                <td>{{ u.email }}</td>
+                <td><a href="{{ path('db',{'id':u.id}) }}"> suprimer</a></td>
+            </tr {% endfor %} >
+
+
+             </tbody>
+        </table></div></div>
+
+
+</html>
+{% endblock %}
