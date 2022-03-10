@@ -1,0 +1,18 @@
+{% extends 'base-back.html.twig' %}
+
+{% block title %}New Categories{% endblock %}
+
+{% block body %}
+    <h1>  <div class="card mb-4 py-3 border-bottom-primary">
+            <div class="card-body">
+                Ajouter une Catégorie
+            </div>
+        </div></h1>
+    {{ include('categories/_form.html.twig') }}
+
+    <a href="{{ path('categories_index') }}"class="btn btn-primary btn-icon-split">
+                                        <span class="icon text-white-50">
+                                            <i class="fas fa-arrow-right"></i>
+                                        </span>
+        <span class="text">   Retour à la liste des Catégories   </span></a>
+{% endblock %}

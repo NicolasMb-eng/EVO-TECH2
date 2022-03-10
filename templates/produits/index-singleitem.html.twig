@@ -1,0 +1,228 @@
+{% extends 'base.html.twig' %}
+
+{% block body%}
+    <section class="page-search">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- Advance Search -->
+                    <div class="advance-search">
+                        <form>
+                            <div class="form-row">
+                                <div class="form-group col-md-4">
+                                    <input type="text" class="form-control my-2 my-lg-0" id="inputtext4" placeholder="Qu'es ce que vous cherchez?">
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <input type="text" class="form-control my-2 my-lg-0" id="inputCategory4" placeholder="Categories">
+                                </div>
+
+                                <div class="form-group col-md-2">
+
+                                    <button type="submit" class="btn btn-primary">Chercher</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+   <!-- ----------------------- -->
+    <section class="section bg-gray">
+    <!-- Container Start -->
+    <div class="container">
+        <div class="row">
+<div class="col-md-8">
+
+    <div class="product-details">
+        <h1 class="product-title">{{ produit.nomProduit }}</h1>
+        <div class="product-meta">
+            <ul class="list-inline">
+                <li class="list-inline-item"><i class="fa fa-folder-open-o"></i> Categorie<a href="">{{ produit.idCategorie.nomCategorie }}</a></li>
+            </ul>
+        </div>
+
+        <!-- product slider -->
+        <div class="product-slider slick-initialized slick-slider slick-dotted"></i>
+            <div class="slick-list draggable"><div class="slick-track" style="opacity: 1; width: 6710px; transform: translate3d(-610px, 0px, 0px);">
+                    <div class="product-slider-item my-4 slick-slide slick-current slick-active" data-image="images/products/products-1.jpg" data-slick-index="0" aria-hidden="false" tabindex="0" role="tabpanel" id="slick-slide00" aria-describedby="slick-slide-control00" style="width: 610px;">
+                        <img class="img-fluid w-100" src="{{ asset('/images/products/'~ produit.image) }}" alt="product-img">
+                    </div><div class="product-slider-item my-4 slick-slide" data-image="{{ asset('/images/products/'~ produit.image) }}" data-slick-index="1" aria-hidden="true" tabindex="-1" role="tabpanel" id="slick-slide01" aria-describedby="slick-slide-control01" style="width: 610px;">
+                        <img class="d-block img-fluid w-100" src="{{ asset('/images/products/'~ produit.image) }}" alt="Second slide">
+                    </div></div></div>
+
+
+
+
+        <!-- product slider -->
+
+        <div class="content mt-5 pt-5">
+            <ul class="nav nav-pills  justify-content-center" id="pills-tab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Product Details</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Specifications</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Reviews</a>
+                </li>
+            </ul>
+            <div class="tab-content" id="pills-tabContent">
+                <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                    <h3 class="tab-title">Product Description</h3>
+                    <p>{{ produit.descProduit }}</p>
+                </div>
+                <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                    <h3 class="tab-title">Spécifications</h3>
+                    <table class="table table-bordered product-table">
+                        <tbody>
+                        <tr>
+                            <td>Prix de l'article</td>
+                            <td>{{ produit.prixProduit }} TND</td>
+                        </tr>
+                        <tr>
+                            <td>Catégorie</td>
+                            <td>{{ produit.idCategorie }} </td>
+                        </tr>
+                        <tr>
+                            <td>Nom de l'article choisis</td>
+                            <td>{{ produit.nomProduit }}</td>
+                        </tr>
+
+
+                        <tr>
+                            <td>Site de vente</td>
+                            <td>Evo-tech</td>
+                        </tr>
+                        <tr>
+                            <td>Pays</td>
+                            <td>Tunisie</td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+                <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+                    <h3 class="tab-title">Product Review</h3>
+                    <div class="product-review">
+                        <div class="media">
+                            <!-- Avater -->
+                            <img src="images/user/user-thumb.jpg" alt="avater">
+                            <div class="media-body">
+                                <!-- Ratings -->
+                                <div class="ratings">
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item">
+                                            <i class="fa fa-star"></i>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <i class="fa fa-star"></i>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <i class="fa fa-star"></i>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <i class="fa fa-star"></i>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <i class="fa fa-star"></i>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="name">
+                                    <h5>Jessica Brown</h5>
+                                </div>
+                                <div class="date">
+                                    <p>Mar 20, 2018</p>
+                                </div>
+                                <div class="review-comment">
+                                    <p>
+                                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremqe laudant tota rem ape
+                                        riamipsa eaque.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="review-submission">
+                            <h3 class="tab-title">Submit your review</h3>
+                            <!-- Rate -->
+                            <div class="rate">
+                                <div class="starrr"></div>
+                            </div>
+                            <div class="review-submit">
+                                <form action="#" class="row">
+                                    <div class="col-lg-6">
+                                        <input type="text" name="name" id="name" class="form-control" placeholder="Name">
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <input type="email" name="email" id="email" class="form-control" placeholder="Email">
+                                    </div>
+                                    <div class="col-12">
+                                        <textarea name="review" id="review" rows="10" class="form-control" placeholder="Message"></textarea>
+                                    </div>
+                                    <div class="col-12">
+                                        <button type="submit" class="btn btn-main">Sumbit</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div></div></div></div>
+
+        <div class="col-md-4">
+            <div class="sidebar">
+                <div class="widget price text-center">
+                    <h4>Prix</h4>
+                    <p>{{ produit.prixProduit }} TND</p>
+                </div>
+                <!-- User Profile widget -->
+                <div class="widget user text-center">
+                    <img class="rounded-circle img-fluid mb-5 px-5" src="images/user/user-thumb.jpg" alt="">
+                    <h4><a href="">Zarroug Achraf</a></h4>
+                    <p class="member-time">Membre depuis Jun 27, 2017</p>
+                    <a href="">See all ads</a>
+                    <ul class="list-inline mt-20">
+                        <li class="list-inline-item"><a href="" class="btn btn-contact d-inline-block  btn-primary px-lg-5 my-1 px-md-3">Contact</a></li>
+                        <li class="list-inline-item"><a href="{{ path('cart_add' ,{id: produit.id}) }}" class="btn btn-offer d-inline-block btn-primary ml-n1 my-1 px-lg-4 px-md-3">ajouter au panier</a></li>
+                    </ul>
+                </div>
+
+                <!-- Rate Widget -->
+                <form action="" method="post">
+
+                    <div class="stars">
+                        <i class="lar la-star" data-value="1"></i>
+                        <i class="lar la-star" data-value="2"></i>
+                        <i class="lar la-star" data-value="3"></i>
+                        <i class="lar la-star" data-value="4"></i>
+                        <i class="lar la-star" data-value="5"></i>
+                    </div>
+                    <input type="text" name="note" id="note" value="0">
+                    <button type="submit">Valider</button>
+                </form>
+
+                <!-- Heureux de vous voir -->
+                <div class="widget coupon text-center">
+                    <h5 class="widget-header"><p>Heureux de vous voir</h5>
+                    <ul>
+                        <li>Notre service est à votre proposition</li>
+                        <li>EVO-Tech numéro 1 en tunisie</li>
+                        <li>Restez chez vous et commandez maintenant</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+        </div>
+        </div>
+        </div>
+
+        <!-- Container End -->
+    </section>
+
+{% endblock %}

@@ -1,0 +1,74 @@
+{% extends 'base-back.html.twig' %}
+
+{% block title %}Reclamation index{% endblock %}
+
+{% block body %}
+    <h1>Reclamation index</h1>
+    <input id="input" type="text">
+
+    <div id="tt">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom Utilisateur</th>
+                <th>DateCreation</th>
+                <th>Contenu</th>
+                <th>Categorie</th>
+                <th>Etat</th>
+                <th>actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for reclamation in reclamations %}
+                <tr>
+                    <td>{{ reclamation.id }}</td>
+                    <td>{{ reclamation.titre }}</td>
+                    <td>{{ reclamation.dateCreation ? reclamation.dateCreation|date('Y-m-d') : '' }}</td>
+                    <td>{{ reclamation.contenu }}</td>
+                    <td>{{ reclamation.categorieRec.nom }}</td>
+                    <td><select id="{{ reclamation.id }}">
+                            <option value="Non Traité" {% if reclamation.etat == "Non Traité" %} selected {% endif %}>Non Traité</option>
+                            <option value="En Cours..." {% if reclamation.etat == "En Cours..." %} selected {% endif %}>En Cours...</option>
+                            <option value="Traité" {% if reclamation.etat == "Traité" %} selected {% endif %}>Traité</option>
+                        </select></td>
+                    <td>
+                        {{ include('reclamation/_delete_form.html.twig') }}
+                        <a href="{{ path("responseRec", {'id' : reclamation.id }) }}"><button>Repondre</button></a>
+
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="6">no records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script >
+        $(function() {
+            $("#input").keyup(function () {
+                $.ajax({
+                    url : "{{ path('searchReclamation') }}",
+                    type: "get",
+                    data : { 'search' : $(this).val() }
+                }).done(function (response) {
+                    var tableau = $(response).find("table");
+                    $('#tt').empty();
+                    $('#tt').append(tableau);
+                })
+            });
+            $("select").change(function () {
+                $.ajax({
+                    url : "{{ path("traiterReccc") }}",
+                    type: "get",
+                    data : { 'string' : $("select option:selected").val(), 'id' : $(this).attr("id") }
+                }).done()
+            });
+        })
+    </script>
+
+{% endblock %}

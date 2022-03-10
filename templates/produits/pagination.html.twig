@@ -1,0 +1,40 @@
+
+
+<form method="get" action="{{ action }}" enctype="application/x-www-form-urlencoded">
+
+    {% if fields|length > 1 %}
+        <select name="{{ filterFieldName }}">
+            {% for field, label in fields %}
+                <option value="{{ field }}"{% if selectedField == field %} selected="selected"{% endif %}>{{ label }}</option>
+            {% endfor %}
+        </select>
+    {% else %}
+        <input type="hidden" name="{{ filterFieldName }}" value="{{ fields|keys|first }}" />
+    {% endif %}
+
+    <input type="text" value="{{ selectedValue }}" name="{{ filterValueName }}" />
+
+    <button>{{ options.button }}</button>
+
+</form>
+<div class="pagination justify-content-center">
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            <li class="page-item">
+                <a class="page-link" href=aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                    <span class="sr-only">Previous</span>
+                </a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item active"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+                <a class="page-link" href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>

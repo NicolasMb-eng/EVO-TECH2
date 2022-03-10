@@ -1,0 +1,13 @@
+{% extends 'baseUser.html.twig' %}
+
+{% block title %}New Reclamation{% endblock %}
+
+{% block body %}
+
+    <h1 class="col-lg-12">Remplir le formulaire de Reclamation</h1>
+
+    {{ include('reclamation/_form.html.twig') }}
+
+    <a href="{{ path('affichage') }}"><button type="submit" class="btn btn-primary d-block mt-2">back to list</button></a>
+
+{% endblock %}

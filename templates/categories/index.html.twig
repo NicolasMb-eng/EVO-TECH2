@@ -1,0 +1,48 @@
+{% extends 'base-back.html.twig' %}
+
+{% block title %}Categories index{% endblock %}
+
+{% block body %}
+    <h1>  <div class="card mb-4 py-3 border-bottom-primary">
+            <div class="card-body">
+                Liste des Catégorie
+            </div>
+        </div></h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>NomCategorie</th>
+                <th>DescCategorie</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for category in categories %}
+            <tr>
+                <td>{{ category.id }}</td>
+                <td>{{ category.nomCategorie }}</td>
+                <td>{{ category.descCategorie }}</td>
+                <td>
+
+                    <a href="{{ path('categories_show', {'id': category.id}) }}" class="btn btn-primary btn-circle btn-group-lg">
+                        <i class="fas fa-eye"></i>
+                    </a>
+                    <a href="{{ path('categories_edit', {'id': category.id}) }}"class="btn btn-secondary btn-circle btn-group-lg">
+                        <i class="fas fa-edit"></i></a></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('categories_new') }}"class="btn btn-primary btn-icon-split">
+                                        <span class="icon text-white-50">
+                                            <i class="fas fa-product-hunt"></i>
+                                        </span>
+        <span class="text">   Créer une nouvelle Catégorie   </span></a>
+{% endblock %}

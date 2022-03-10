@@ -1,0 +1,14 @@
+{% extends 'base-back.html.twig' %}
+
+{% block title %}New CategorieRec{% endblock %}
+
+{% block body %}
+    <h1>Create new CategorieRec</h1>
+
+    {{ include('categorie_rec/_form.html.twig') }}
+
+    <a href="{{ path('categorie_rec_index') }}"class="btn btn-primary btn-icon-split">
+                                        <span class="icon text-white-50">
+                                            <i class="fas fa-arrow-right"></i>
+                                        </span>Retour a la liste</a>
+{% endblock %}

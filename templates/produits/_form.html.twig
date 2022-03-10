@@ -1,0 +1,61 @@
+{{ form_start(form,{'attr': {'novalidate': 'novalidate'}}) }}
+<table>
+
+ <tr>
+
+       <td>{{ form_label(form.nomProduit,"Nom de Produit")  }}</td>
+       <td>{{ form_widget(form.nomProduit,{'attr': {'class': 'error_input'}}) }}</td>
+     <tr>
+       <td>{{ form_errors(form.nomProduit) }}</td>
+    </tr>
+ </tr>
+
+ <tr>
+
+        <td>{{ form_label(form.descProduit,"Déscription de Produit") }}</td>
+        <td>{{ form_widget(form.descProduit,{'attr': {'class': 'error_input'}})}}</td>
+     <tr>
+        <td>{{ form_errors(form.descProduit) }}</td>
+    </tr>
+ </tr>
+ <tr>
+       <td>{{ form_label(form.prixProduit,"Le prix de prooduit") }}</td>
+       <td>{{ form_widget(form.prixProduit)}}</td>
+     <tr>
+       <td>{{ form_errors(form.prixProduit) }}</td>
+    </tr>
+
+ </tr>
+
+ <tr>
+        <td>{{ form_label(form.quantiteProduit,"Quaatitée disponible") }}</td>
+        <td>{{ form_widget(form.quantiteProduit)}}</td>
+     <tr>
+        <td>{{ form_errors(form.quantiteProduit) }}</td>
+    </tr>
+ </tr>
+
+ <tr>
+         <td>{{ form_label(form.idCategorie,"Catégorie") }}</td>
+         <td> {{ form_widget(form.idCategorie)}}</td>
+     <tr>
+         <td>{{ form_errors(form.idCategorie) }}</td>
+     </tr>
+ </tr>
+    <tr>
+
+        <td>{{ form_label(form.image,"upload image")  }}</td>
+        <td>{{ form_widget(form.image) }}</td>
+    <tr>
+        <td>{{ form_row(form.image) }}</td>
+    </tr>
+    {{ form_row(form.captchaCode) }}
+
+    </tr>
+
+</table>
+<button class="btn btn-success btn-icon-split"><span class="icon text-white-50">
+                                            <i class="fas fa-check"></i>
+                                        </span>{{ button_label|default('Ajouter le Produit') }}</button>
+{{ form_end(form) }}
+

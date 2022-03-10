@@ -1,0 +1,56 @@
+{% extends 'base-back.html.twig' %}
+
+
+{% block body %}
+    <h1>  <div class="card mb-4 py-3 border-bottom-primary">
+            <div class="card-body">
+                Liste des Produits
+            </div>
+        </div></h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>NomProduit</th>
+                <th>DescProduit</th>
+                <th>PrixProduit</th>
+                <th>QuantiteProduit</th>
+                <th>image de Produit</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for produit in produits %}
+            <tr>
+                <td>{{ produit.id }}</td>
+                <td>{{ produit.nomProduit }}</td>
+                <td>{{ produit.descProduit }}</td>
+                <td>{{ produit.prixProduit }}</td>
+                <td>{{ produit.quantiteProduit }}</td>
+                <td><img src="{{asset ('images/products/' ~ produit.image) }}"></td>
+
+                <td>
+                    <a href="{{ path('produits_show', {'id': produit.id}) }}" class="btn btn-primary btn-circle btn-group-lg">
+                        <i class="fas fa-eye"></i></a>
+                    <a href="{{ path('produits_edit', {'id': produit.id}) }}" class="btn btn-secondary btn-circle btn-group-lg">
+                        <i class="fas fa-edit"></i></a></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('produits_new') }}"class="btn btn-primary btn-icon-split">
+                                        <span class="icon text-white-80">
+                                            <i class="fas fa-product-hunt"></i>
+                                        </span>
+        <span class="text">   Créer un nouveau Produit    </span></a>
+
+    </a>
+    {{ knp_pagination_render(produits) }}
+
+{% endblock %}
