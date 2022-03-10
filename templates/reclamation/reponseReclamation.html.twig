@@ -1,0 +1,15 @@
+{% extends 'base-back.html.twig' %}
+
+{% block title %}New Reclamation{% endblock %}
+
+{% block body %}
+
+    <h1 class="col-lg-12">Reponse Reclamation</h1>
+
+    <form action="{{ path("responseRec", {'id' : id }) }}" method="post">
+        <input name="content" type="text" value="{{ content  }}" placeholder="Reponse...">
+        <input name="submit" type="submit" value="Envoyer Mail">
+    </form>
+
+
+{% endblock %}

@@ -36,6 +36,22 @@ class ReclamationRepository extends ServiceEntityRepository
     }
     */
 
+    public function search($value)
+    {
+        return $this->createQueryBuilder('r')
+            ->Where('r.titre LIKE :val')
+            ->orWhere('r.dateCreation LIKE :val1')
+            ->orWhere('r.contenu LIKE :val2')
+            ->orWhere('r.contenu LIKE :val2')
+            ->setParameter('val', "%".$value."%")
+            ->setParameter('val1', "%".$value."%")
+            ->setParameter('val2', "%".$value."%")
+            ->orderBy('r.id', 'ASC')
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
     /*
     public function findOneBySomeField($value): ?Reclamation
     {

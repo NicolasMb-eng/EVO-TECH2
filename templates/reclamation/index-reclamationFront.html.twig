@@ -1,7 +1,9 @@
 {% extends 'base-front.html.twig' %}
 {% block body %}
-{% for reclamation in reclamations %}
-    <tr>
+    <img src="{{ asset('front-office/images/reclamation-logo.png') }}">
+
+    {% for reclamation in reclamations %}
+<section>
         <div class="product-grid-list">
             <div class="row mt-30">
                 <div class="col-sm-12 col-lg-4 col-md-6">
@@ -15,7 +17,7 @@
                                 </a>
                             </div>
                             <div class="card-body">
-                                <h4 class="card-title"><a href="single.html">{{ reclamation.id }}</a></h4>
+                                <h4 class="card-title"><a href="single.html">{{ reclamation.titre }}</a></h4>
                                 <ul class="list-inline product-meta">
                                     <li class="list-inline-item">
                                         <a href="single.html"><i class="fa fa-folder-open-o"></i>{{ reclamation.categorieRec.nom }}</a>
@@ -32,10 +34,7 @@
                 </div>
             </div>
         </div>
-        </div>
-        </div>
-        </div>
-        </section>
+
         <div class="">
             <ul class="list-inline justify-content-center">
                 <li class="list-inline-item">
@@ -52,7 +51,8 @@
         </div>
 
 
-    </tr>
+</section>
+
 {% else %}
     <tr>
         <td colspan="6">no records found</td>

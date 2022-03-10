@@ -4,6 +4,7 @@ namespace App\Entity;
 use Symfony\Component\Validator\Constraints as Assert;
 use App\Repository\ReclamationRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=ReclamationRepository::class)
@@ -36,6 +37,11 @@ class Reclamation
 
 
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups ("post:read")
+     */
+    private $etat;
     /**
      * @ORM\ManyToOne(targetEntity=CategorieRec::class, inversedBy="Reclamation")
      */
@@ -104,6 +110,18 @@ class Reclamation
     public function setNomUser(string $nomUser): self
     {
         $this->nomUser = $nomUser;
+
+        return $this;
+    }
+
+    public function getEtat(): ?string
+    {
+        return $this->etat;
+    }
+
+    public function setEtat(string $etat): self
+    {
+        $this->etat = $etat;
 
         return $this;
     }

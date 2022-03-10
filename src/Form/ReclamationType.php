@@ -10,6 +10,8 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+
 
 class ReclamationType extends AbstractType
 {
@@ -30,8 +32,12 @@ class ReclamationType extends AbstractType
             ->add('contenu', TextType::class, [
                 'required' => true
             ])
+
+
         ;
     }
+
+
 
     public function configureOptions(OptionsResolver $resolver): void
     {
